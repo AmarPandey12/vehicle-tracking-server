@@ -6,9 +6,16 @@ const getVehicleDetails = async (req, res)=>{
     // console.log(`receiving vehicle controller request body ${request.query.params}`);
 
     // Calling getVehicle service 
-    const getVehicleAccountToken = getVehicleService.getVehicleServices();
+    
+    
+    async function getVehicleAccountTokenFunc(){
+        const getVehicleAccountToken = getVehicleService.getVehicleServices();
+        await console.log('hell o' + getVehicleAccountToken);
+        return 'hello';
+    }
 
-    console.log('hell o' + getVehicleAccountToken);
+
+    
 }
 
 module.exports = getVehicleDetails;
