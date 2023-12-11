@@ -10,6 +10,7 @@ const getVehicleDetails = async (req, res)=>{
     const getVehicleAccountToken = await getVehicleService.getVehicleServices();
 
     console.log('hell o' + getVehicleAccountToken);
+    res.send('Hello from server ' + getVehicleAccountToken);
 }
 
 module.exports = getVehicleDetails;
