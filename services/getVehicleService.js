@@ -12,8 +12,8 @@ const getVehicleServices = () =>{
     };
     request(options, function (error, response) {
     if (error) throw new Error(error);
-        console.log(response.body.eid);
-        const token = response.body.eid;
+        console.log(response.body);
+        const token = response.body;
         return token;
         
     });
