@@ -2,7 +2,7 @@ console.log(`welcome to get vehicle service`);
 const request = require('request');
 
 
-const getVehicleServices = () =>{
+const getVehicleServices = async () =>{
     var token;
     console.log(`welcome to get vehicle service`);
     var options = {
@@ -11,7 +11,7 @@ const getVehicleServices = () =>{
         'headers': {
         }
     };
-    request(options, function (error, response) {
+    await request(options, function (error, response) {
     if (error) throw new Error(error);
         const callResponse = JSON.parse(response.body);
         const tokenEid = callResponse.eid;
