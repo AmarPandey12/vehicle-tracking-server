@@ -14,6 +14,9 @@ const getVehicleServices = () =>{
     if (error) throw new Error(error);
         console.log('SWITCH');
         console.log(JSON.parse(response.body));
+        const callResponse = JSON.parse(response.body);
+        const tokenEid = callResponse.eid;
+        console.log('>>>>>>>>>>>>>>>> ' + tokenEid);
         const token = 'static'
         return token;
         
