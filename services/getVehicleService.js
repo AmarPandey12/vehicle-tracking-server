@@ -16,11 +16,11 @@ const getVehicleServices = () =>{
         const tokenEid = callResponse.eid;
         console.log('>>>>>>>>>>>>>>>> ' + tokenEid);
         const token = tokenEid;
-        return token;
+        
         
     });
 
-        // res.send('response from controller HI');
+    return token;
     
     }
     
