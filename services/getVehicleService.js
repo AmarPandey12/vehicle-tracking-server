@@ -13,8 +13,8 @@ const getVehicleServices = () =>{
     request(options, function (error, response) {
     if (error) throw new Error(error);
         console.log('SWITCH');
-        console.log(response.body.eid);
-        const token = response.body.eid;
+        console.log(JSON.parse(response.body));
+        const token = 'static'
         return token;
         
     });
