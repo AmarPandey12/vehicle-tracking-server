@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const vehicleRoutes = require('./routes/getVehicleRoute')
 
-const PORT = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
 app.use((err, req, res, next) => {
     console.error(err.stack)
@@ -16,6 +16,6 @@ app.use("/", vehicleRoutes);
 //     res.send(`This route is for application root`);
 // });
 
-app.listen(PORT, ()=>{
-    console.log(`app is successfully runnning on port ${PORT}`);
+app.listen(port, ()=>{
+    console.log(`app is successfully runnning on port ${port}`);
 });
