@@ -3,6 +3,7 @@ const request = require('request');
 
 
 const getVehicleServices = () =>{
+    var token;
     console.log(`welcome to get vehicle service`);
     var options = {
         'method': 'GET',
@@ -15,7 +16,7 @@ const getVehicleServices = () =>{
         const callResponse = JSON.parse(response.body);
         const tokenEid = callResponse.eid;
         console.log('>>>>>>>>>>>>>>>> ' + tokenEid);
-        const token = tokenEid;
+        token = tokenEid;
         
         
     });
