@@ -7,15 +7,9 @@ const getVehicleDetails = async (req, res)=>{
 
     // Calling getVehicle service 
     
-    
-    async function getVehicleAccountTokenFunc(){
-        const getVehicleAccountToken = getVehicleService.getVehicleServices();
-        await console.log('hell o' + getVehicleAccountToken);
-        return 'hello';
-    }
+    const getVehicleAccountToken = await getVehicleService.getVehicleServices();
 
-
-    
+    console.log('hell o' + getVehicleAccountToken);
 }
 
 module.exports = getVehicleDetails;
