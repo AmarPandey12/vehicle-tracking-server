@@ -15,5 +15,5 @@ app.use("/", vehicleRoutes);
 // });
 
 app.listen(5000, ()=>{
-    console.log(`app is successfully runnning on port 3000`);
+    console.log(`app is successfully runnning on port 5000`);
 });
