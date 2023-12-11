@@ -1,5 +1,4 @@
 console.log('inside controller');
-const request = require('request');
 const getVehicleService = require('../services/getVehicleService');
 
 const getVehicleDetails = async (req, res)=>{
