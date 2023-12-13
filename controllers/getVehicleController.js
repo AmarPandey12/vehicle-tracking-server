@@ -7,18 +7,18 @@ const getVehicleDetails = async (req, res)=>{
 
     // Calling getVehicle service 
     
-    const getVehicleAccountToken = await getVehicleService.getVehicleServices();
+    const getVehicle = JSON.stringify(await getVehicleService.getVehicleServices());
 
-    console.log('' + getVehicleAccountToken);
-    res.send('Hello from server ' + getVehicleAccountToken);
+    console.log('' + getVehicle);
+    res.send('Hello from server ' + getVehicle);
 
     let vehicleDetails = [];
-    getVehicleAccountToken.forEach(element => {
-        console.log('>>>>>>>>>> ' + element.d.nm);
-        vehicleDetails.push(element.d.nm)
-    });
+    // getVehicleAccountToken.forEach(element => {
+    //     console.log('>>>>>>>>>> ' + element.d.nm);
+    //     vehicleDetails.push(element.d.nm)
+    // });
 
-    return vehicleDetails
+    // return vehicleDetails;
 }
 
 module.exports = getVehicleDetails;
