@@ -7,7 +7,7 @@ const getVehicleDetails = async (req, res)=>{
 
     // Calling getVehicle service 
     
-    const getVehicle = JSON.stringify(await getVehicleService.getVehicleServices());
+    const getVehicle = JSON.parse(JSON.stringify(await getVehicleService.getVehicleServices()));
 
     console.log('' + getVehicle);
     // res.send('Hello from server ' + getVehicle);
