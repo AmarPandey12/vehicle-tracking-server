@@ -60,7 +60,7 @@ const getVehicleServices = async () =>{
         });
 
         const vehicleData = res.data;
-        console.log(vehicleData);
+        // console.log(vehicleData);
 
         return vehicleData;
 

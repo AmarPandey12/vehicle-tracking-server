@@ -9,8 +9,16 @@ const getVehicleDetails = async (req, res)=>{
     
     const getVehicleAccountToken = await getVehicleService.getVehicleServices();
 
-    console.log('hell o' + getVehicleAccountToken);
+    console.log('' + getVehicleAccountToken);
     res.send('Hello from server ' + getVehicleAccountToken);
+
+    let vehicleDetails = [];
+    getVehicleAccountToken.forEach(element => {
+        console.log('>>>>>>>>>> ' + element.d.nm);
+        vehicleDetails.push(element.d.nm)
+    });
+
+    return vehicleDetails
 }
 
 module.exports = getVehicleDetails;
