@@ -46,7 +46,7 @@ const getVehicleServices = async () =>{
         });
 
         const token = res.data.eid;
-        console.log(token);
+        // console.log(token);
 
         // Making vehicle detail call
         const vehicleDetails = await axios({
@@ -60,7 +60,7 @@ const getVehicleServices = async () =>{
         });
 
         const vehicleData = res.data;
-        // console.log(vehicleData);
+        console.log(vehicleData);
 
         return vehicleData;
 
