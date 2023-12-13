@@ -44,7 +44,7 @@ const getVehicleServices = async () =>{
         
         console.log('>>>>>>>>>>>>>>>> ' + getAllVehicleCallResponse);
         // const token = tokenEid;
-        return token;
+        return getAllVehicleCallResponse;
       } catch (error) {
         console.error(error); // `error` will be whatever you passed to `reject()` at the top
       }
