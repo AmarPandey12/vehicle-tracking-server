@@ -10,14 +10,15 @@ const getVehicleDetails = async (req, res)=>{
     const getVehicle = JSON.stringify(await getVehicleService.getVehicleServices());
 
     console.log('' + getVehicle);
-    res.send('Hello from server ' + getVehicle);
+    // res.send('Hello from server ' + getVehicle);
 
     let vehicleDetails = [];
-    // getVehicleAccountToken.forEach(element => {
-    //     console.log('>>>>>>>>>> ' + element.d.nm);
-    //     vehicleDetails.push(element.d.nm)
-    // });
+    getVehicle.forEach(element => {
+        console.log('>>>>>>>>>> ' + element.d.nm);
+        vehicleDetails.push(element.d.nm)
+    });
 
+    res.send(vehicleDetails);
     // return vehicleDetails;
 }
 
