@@ -45,7 +45,25 @@ const getVehicleServices = async () =>{
             }
         });
 
-        console.log(res.data);
+        const token = res.data.eid;
+        console.log(token);
+
+        // Making vehicle detail call
+        const vehicleDetails = await axios({
+            method: 'get',
+            url:'https://hst-api.wialon.com/wialon/ajax.html',
+            params:{
+                svc: 'core/update_data_flags',
+                params: '{"spec":[{"type":"type","data":"avl_unit","flags":1025,"mode":0}]}',
+                sid: token
+            }
+        });
+
+        const vehicleData = res.data;
+        console.log(vehicleData);
+
+        return vehicleData;
+
         // let response = await makeMyRequest(optionsToken);
         // // console.log(response); // `response` will be whatever you passed to `resolve()` at the top
         // const callResponse = JSON.parse(response);
