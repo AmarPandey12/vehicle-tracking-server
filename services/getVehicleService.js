@@ -31,7 +31,7 @@ const getVehicleServices = async () =>{
     try {
         let response = await doRequest(options);
         // console.log(response); // `response` will be whatever you passed to `resolve()` at the top
-        const callResponse = JSON.parse(response.body);
+        const callResponse = JSON.parse(response);
         const tokenEid = callResponse.eid;
         console.log('>>>>>>>>>>>>>>>> ' + tokenEid);
         const token = tokenEid;
