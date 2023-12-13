@@ -1,5 +1,5 @@
 console.log(`welcome to get vehicle service`);
-const request = require('request');
+// const request = require('request');
 const axios = require('axios');
 
 
@@ -59,7 +59,7 @@ const getVehicleServices = async () =>{
             }
         });
 
-        const vehicleData = res.data;
+        const vehicleData = vehicleDetails.data;
         console.log(vehicleData);
 
         return vehicleData;
