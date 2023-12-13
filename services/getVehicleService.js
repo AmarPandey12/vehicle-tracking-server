@@ -30,7 +30,12 @@ const getVehicleServices = async () =>{
 
     try {
         let response = await doRequest(options);
-        console.log(response); // `response` will be whatever you passed to `resolve()` at the top
+        // console.log(response); // `response` will be whatever you passed to `resolve()` at the top
+        const callResponse = JSON.parse(response.body);
+        const tokenEid = callResponse.eid;
+        console.log('>>>>>>>>>>>>>>>> ' + tokenEid);
+        const token = tokenEid;
+        return token;
       } catch (error) {
         console.error(error); // `error` will be whatever you passed to `reject()` at the top
       }
