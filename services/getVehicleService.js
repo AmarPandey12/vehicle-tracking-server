@@ -2,7 +2,23 @@ console.log(`welcome to get vehicle service`);
 const request = require('request');
 
 
+
+
 const getVehicleServices = async () =>{
+
+    
+    function doRequest(url) {
+        return new Promise(function (resolve, reject) {
+        request(url, function (error, res, body) {
+            if (!error && res.statusCode === 200) {
+            resolve(body);
+            } else {
+            reject(error);
+            }
+        });
+        });
+    }
+
     // var token;
     console.log(`welcome to get vehicle service`);
     var options = {
@@ -11,19 +27,27 @@ const getVehicleServices = async () =>{
         'headers': {
         }
     };
-    await request(options, function (error, response) {
-    if (error) throw new Error(error);
-        const callResponse = JSON.parse(response.body);
-        const tokenEid = callResponse.eid;
-        console.log('>>>>>>>>>>>>>>>> ' + tokenEid);
-        const token = tokenEid;
-        return token;
+
+    try {
+        let response = await doRequest(options);
+        console.log(response); // `response` will be whatever you passed to `resolve()` at the top
+      } catch (error) {
+        console.error(error); // `error` will be whatever you passed to `reject()` at the top
+      }
+
+    // await request(options, function (error, response) {
+    // if (error) throw new Error(error);
+    //     const callResponse = JSON.parse(response.body);
+    //     const tokenEid = callResponse.eid;
+    //     console.log('>>>>>>>>>>>>>>>> ' + tokenEid);
+    //     const token = tokenEid;
+    //     return token;
         
-    });
+    // });
 
     
     
-    }
+}
     
     
 
