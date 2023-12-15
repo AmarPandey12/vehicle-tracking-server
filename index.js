@@ -11,6 +11,7 @@ app.use((err, req, res, next) => {
 })
 
 app.use("/", vehicleRoutes);
+app.use("/getVehicles", vehicleRoutes);
 
 // app.get('/', (req, res)=>{
 //     res.send(`This route is for application root`);
