@@ -15,7 +15,7 @@ const getVehicleDetails = async (req, res)=>{
     let vehicleDetails = [];
     getVehicle.forEach(element => {
         console.log('>>>>>>>>>> ' + element.d.nm);
-        vehicleDetails.push({'vehicle': element.d.nm, 'vehicle Id': element.d.id, })
+        vehicleDetails.push({'vehicle': element.d.nm, 'vehicle Id': element.d.id, 'Time': new Date(element.d.pos.t)})
     });
 
     res.send(vehicleDetails);
