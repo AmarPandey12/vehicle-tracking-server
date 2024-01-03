@@ -20,7 +20,7 @@ const getVehicleServices = async () =>{
             url:'https://hst-api.wialon.com/wialon/ajax.html',
             params:{
                 svc: 'core/update_data_flags',
-                params: '{"spec":[{"type":"type","data":"avl_unit","flags":1025,"mode":0}]}',
+                params: '{"spec":[{"type":"type","data":"avl_unit","flags":5121,"mode":0}]}',
                 sid: token
             }
         });
