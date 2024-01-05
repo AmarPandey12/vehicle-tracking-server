@@ -15,12 +15,10 @@ const getVehicleDetails = async (req, res)=>{
     let vehicleDetails = [];
     getVehicle.forEach(element => {
         console.log('>>>>>>>>>> ' + element.d.nm);
-        const sensorData = JSON.parse(JSON.stringify(element.d.sens));
-        console.log('engine hour sensor key', sensorData);
-        let sensorKeys = [];
-        sensorData.forEach(data =>(
-            sensorKeys.push(data[0].p)
-        ));
+        
+        // console.log('engine hour sensor key', sensorData);
+        let sensorData = [];
+        console.log(element.d.sens['1']);
         console.log('sens keys ', sensorKeys);
         // console.log('engine hour sensor key', element.d.sens[1].p);
         // console.log('engine hour sensor key', element.d.sens[2].p);
