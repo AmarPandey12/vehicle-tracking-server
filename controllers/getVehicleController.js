@@ -13,14 +13,14 @@ const getVehicleDetails = async (req, res)=>{
     // res.send('Hello from server ' + getVehicle);
 
     let vehicleDetails = [];
-    getVehicle.forEach(element => {
+    getVehicle.forEach((element, index) => {
         console.log('>>>>>>>>>> ' + element.d.nm);
         
         // console.log('engine hour sensor key', sensorData);
         let sensorData = [];
         console.log(element.d.sens['1']);
         // sensorData.push({'sensor' : element.d.sens['1'].n, 'key': element.d.sens['1'].p, 'value': element.d.lmsg.p[element.d.sens['1'].p] });
-        sensorData.push({'sensor' : element.d.sens['1'].n});
+        sensorData.push({'sensor' : element.d.sens[index].n});
         console.log('sens keys ', sensorData);
         // console.log('engine hour sensor key', element.d.sens[1].p);
         // console.log('engine hour sensor key', element.d.sens[2].p);
