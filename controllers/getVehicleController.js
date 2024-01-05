@@ -18,7 +18,7 @@ const getVehicleDetails = async (req, res)=>{
         
         // console.log('engine hour sensor key', sensorData);
         let sensorData = [];
-        console.log(element.d.sens['1']);
+        console.log(element.d.sens[index]);
         // sensorData.push({'sensor' : element.d.sens['1'].n, 'key': element.d.sens['1'].p, 'value': element.d.lmsg.p[element.d.sens['1'].p] });
         sensorData.push({'sensor' : element.d.sens[index].n});
         console.log('sens keys ', sensorData);
