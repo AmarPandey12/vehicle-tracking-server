@@ -7,33 +7,28 @@ const getVehicleDetails = async (req, res)=>{
 
     // Calling getVehicle service 
     
-    const getVehicle = JSON.parse(JSON.stringify(await getVehicleService.getVehicleServices()));
-
-    console.log('' + getVehicle);
-    // res.send('Hello from server ' + getVehicle);
+    const vehicleData = JSON.parse(JSON.stringify(await getVehicleService.getVehicleServices()));
 
     let vehicleDetails = [];
-    getVehicle.forEach((element, index) => {
-        console.log('>>>>>>>>>> ' + element.d.nm);
-        console.log(index);
-        console.log(element.d.sens[index + 1]);
+    vehicleData.forEach((element, index) => {
+        const vehicleSensorData = element.d.sens;
+        let sensorData = [];
         console.log('<<<<<<<<<<<<<<<<');
-        if(element.d.sens[index + 1]){
-            console.log(element.d.sens[index + 1].p);
-        }
+        vehicleSensorData.forEach((data, index)=>{
+            sensorName = data[index + 1].n;
+            sensorKey = data[index + 1].p;
+            sensorData.push({'sensor name' : sensorName, 'sensor key': sensorKey });
+        });
+
+        console.log('hello from sensor', sensorData);
+        console.log('>>>>>>>>>>>>>>>>');
         
-        // console.log('engine hour sensor key', sensorData);
-        // let sensorData = [];
-        // console.log(element.d.sens[index]);
-        // // sensorData.push({'sensor' : element.d.sens['1'].n, 'key': element.d.sens['1'].p, 'value': element.d.lmsg.p[element.d.sens['1'].p] });
-        // sensorData.push({'sensor' : element.d.sens[index].n});
-        // console.log('sens keys ', sensorData);
-        // console.log('engine hour sensor key', element.d.sens[1].p);
-        // console.log('engine hour sensor key', element.d.sens[2].p);
-        // console.log('engine hour sensor key', element.d.sens[3].p);
-        // console.log('engine hour sensor key', element.d.sens[4].p);
+        // console.log('<<<<<<<<<<<<<<<<');
+        // if(element.d.sens[index + 1]){
+        //     console.log(element.d.sens[index + 1].p);
+        // }
         
-        vehicleDetails.push({'vehicle': element.d.nm, 'vehicle Id': element.d.id, 'Time': new Date(element.d.pos.t)})
+        vehicleDetails.push({'vehicle': element.d.nm, 'vehicle Id': element.d.id, 'sensor data': sensorData, 'Time': new Date(element.d.pos.t)})
     });
 
     res.send(vehicleDetails);
