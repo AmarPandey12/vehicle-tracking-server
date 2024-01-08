@@ -19,7 +19,8 @@ const getVehicleDetails = async (req, res)=>{
         for(const [i,val] of Object.entries(vehicleSensorData))
         {
             console.log('>>>>>>> ' + i, val);
-            sensorData.push({'sensor key': val.n , 'sensor value': val.p});
+            let sensorKey = val.p;
+            sensorData.push({'sensor': val.n , 'key': sensorKey, 'value': element.d.lmsg.p.sensorKey});
         }
             
         
