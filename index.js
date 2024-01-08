@@ -10,8 +10,15 @@ app.use((err, req, res, next) => {
     res.status(500).send('Something broke!')
 })
 
+
+
 app.use("/", vehicleRoutes);
 app.use("/getVehicles", vehicleRoutes);
+
+app.use('*', (req, res, next) => {
+    res.json = (...args) => res.type('json').send(JSON.stringify(...args))
+    next()
+})
 
 // app.get('/', (req, res)=>{
 //     res.send(`This route is for application root`);
