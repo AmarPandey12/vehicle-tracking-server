@@ -20,20 +20,22 @@ const getVehicleDetails = async (req, res)=>{
         {
             console.log('>>>>>>> ' + i, val);
             let sensorKey = val.p;
-            console.log('((((((((((((((((((' + element.d.lmsg.p);
+            console.log('((((((((((((((((((' + element.d.lmsg.p.sensorKey);
             sensorData.push({'sensor': val.n , 'key': sensorKey});
         }
-            
+        
+        const result = (sensorData.find(({ key }) => key === sensorKey)) ? sensorData.push({'value': 'custom' + sensorKey}) : '';
+
         // let finalData = sensorData.map((ele)=>{
             
         // });
 
-        console.log('hello from sensor', sensorData);
+        console.log('hello from sensor', result);
         console.log('>>>>>>>>>>>>>>>>');
         
         
         
-        vehicleDetails.push({'vehicle': element.d.nm, 'vehicle Id': element.d.id, 'sensor data': sensorData, 'Time': new Date(element.d.pos.t)})
+        vehicleDetails.push({'vehicle': element.d.nm, 'vehicle Id': element.d.id, 'sensor data': result, 'Time': new Date(element.d.pos.t)})
     });
 
     res.send(vehicleDetails);
