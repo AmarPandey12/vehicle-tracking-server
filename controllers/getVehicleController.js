@@ -11,11 +11,11 @@ const getVehicleDetails = async (req, res)=>{
 
     let vehicleDetails = [];
     vehicleData.forEach((element, index) => {
-        const vehicleSensorData = element.d.sens;
+        const vehicleSensorData = JSON.stringify(element.d.sens);
         let sensorData = [];
         console.log('<<<<<<<<<<<<<<<<');
         console.log(vehicleSensorData);
-        res.send(JSON.stringify(vehicleSensorData));
+        res.send(vehicleSensorData);
         vehicleSensorData.forEach((data, index)=>{
             sensorName = data[index + 1].n;
             sensorKey = data[index + 1].p;
