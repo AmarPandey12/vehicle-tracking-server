@@ -20,10 +20,13 @@ const getVehicleDetails = async (req, res)=>{
         {
             console.log('>>>>>>> ' + i, val);
             let sensorKey = val.p;
-            sensorData.push({'sensor': val.n , 'key': sensorKey, 'value': element.d.lmsg.p.sensorKey});
+            console.log('((((((((((((((((((' + element.d.lmsg.p);
+            sensorData.push({'sensor': val.n , 'key': sensorKey});
         }
             
-        
+        // let finalData = sensorData.map((ele)=>{
+            
+        // });
 
         console.log('hello from sensor', sensorData);
         console.log('>>>>>>>>>>>>>>>>');
