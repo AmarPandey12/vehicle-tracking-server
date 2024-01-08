@@ -16,7 +16,7 @@ const getVehicleDetails = async (req, res)=>{
     getVehicle.forEach((element, index) => {
         console.log('>>>>>>>>>> ' + element.d.nm);
         console.log(index);
-        console.log(element.d.sens[index].n);
+        console.log(element.d.sens[index]['n']);
         console.log('<<<<<<<<<<<<<<<<');
         // console.log(element.d.sens[index].p);
         // console.log('engine hour sensor key', sensorData);
