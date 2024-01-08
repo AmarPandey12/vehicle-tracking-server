@@ -8,6 +8,7 @@ const getVehicleDetails = async (req, res)=>{
     // Calling getVehicle service 
     
     const vehicleData = JSON.parse(JSON.stringify(await getVehicleService.getVehicleServices()));
+    res.send(vehicleData);
 
     let vehicleDetails = [];
     vehicleData.forEach((element, index) => {
@@ -15,7 +16,7 @@ const getVehicleDetails = async (req, res)=>{
         let sensorData = [];
         console.log('<<<<<<<<<<<<<<<<');
         console.log(vehicleSensorData);
-        res.send(vehicleSensorData);
+        
 
         // Object.entries(vehicleSensorData).forEach(
         //     ([key, value]) => {
@@ -23,11 +24,11 @@ const getVehicleDetails = async (req, res)=>{
         //         sensorData.push({'sensor name': key, 'sensor key': value});
         // });
             
-        vehicleSensorData.forEach((data, index)=>{
-            sensorName = data[index + 1].n;
-            sensorKey = data[index + 1].p;
-            sensorData.push({'sensor name' : sensorName, 'sensor key': sensorKey });
-        });
+        // vehicleSensorData.forEach((data, index)=>{
+        //     sensorName = data[index + 1].n;
+        //     sensorKey = data[index + 1].p;
+        //     sensorData.push({'sensor name' : sensorName, 'sensor key': sensorKey });
+        // });
 
         console.log('hello from sensor', sensorData);
         console.log('>>>>>>>>>>>>>>>>');
