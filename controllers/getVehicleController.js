@@ -14,6 +14,8 @@ const getVehicleDetails = async (req, res)=>{
         const vehicleSensorData = element.d.sens;
         let sensorData = [];
         console.log('<<<<<<<<<<<<<<<<');
+        console.log(vehicleSensorData);
+        res.send(vehicleSensorData);
         vehicleSensorData.forEach((data, index)=>{
             sensorName = data[index + 1].n;
             sensorKey = data[index + 1].p;
