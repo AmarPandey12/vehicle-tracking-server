@@ -39,6 +39,7 @@ const getVehicleDetails = async (req, res)=>{
     });
 
     res.send(vehicleDetails);
+    
     // return vehicleDetails;
 }
 

@@ -9,16 +9,16 @@ app.use((err, req, res, next) => {
     console.error(err.stack)
     res.status(500).send('Something broke!')
 })
+// app.use('*', (req, res, next) => {
+//     res.json = (...args) => res.type('json').send(JSON.stringify(...args))
+//     next()
+// })
 
-
-
+app.set('json spaces', 2)
 app.use("/", vehicleRoutes);
 app.use("/getVehicles", vehicleRoutes);
 
-app.use('*', (req, res, next) => {
-    res.json = (...args) => res.type('json').send(JSON.stringify(...args))
-    next()
-})
+
 
 // app.get('/', (req, res)=>{
 //     res.send(`This route is for application root`);
