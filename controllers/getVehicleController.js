@@ -4,6 +4,8 @@ const getVehicleService = require('../services/getVehicleService');
 const getVehicleDetails = async (req, res)=>{
     console.log('inside getVehicleDetails controller:: ');
     // Calling getVehicle service 
+    const sid = req.param.sid;
+    console.log('>>>>>>> ' + sid);
     const vehicleData = JSON.parse(JSON.stringify(await getVehicleService.getVehicleServices()));
     let vehicleDetails = [];
     vehicleData.forEach((element, index) => {
