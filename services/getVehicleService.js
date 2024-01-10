@@ -26,8 +26,6 @@ const getVehicleServices = async () =>{
         });
 
         const vehicleData = vehicleDetails.data;
-        console.log(vehicleData);
-
         return vehicleData;
 
       } catch (error) {
