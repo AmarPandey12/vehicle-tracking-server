@@ -30,4 +30,4 @@ const getVehicleServices = async (sidToken) =>{
         console.error(error); // `error` will be whatever you passed to `reject()` at the top
       }
 }
-module.exports = getVehicleServices;
+module.exports = {getVehicleServices};
