@@ -9,7 +9,7 @@ const getVehicleServices = async (sidToken) =>{
             url:'https://hst-api.wialon.com/wialon/ajax.html',
             params:{
                 svc: 'token/login',
-                params: `{"token": ${sidToken}}`
+                params: '{"token":' + sidToken + '}'
             }
         });
 
