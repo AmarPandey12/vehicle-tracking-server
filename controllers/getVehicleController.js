@@ -8,7 +8,8 @@ const getVehicleDetails = async (req, res)=>{
     console.log('>>>>>>> ' + sid);
     const vehicleData = JSON.parse(JSON.stringify(await getVehicleService.getVehicleServices(sid)));
     let vehicleDetails = [];
-    console.log('}}}}}}}}}} '+ vehicleData);
+    res.send(vehicleData);
+    console.log('}}}}}}}}}} '+ JSON.stringify(vehicleData));
     vehicleData.forEach((element, index) => {
         const vehicleSensorData = element.d.sens;
         let sensorData = [];
