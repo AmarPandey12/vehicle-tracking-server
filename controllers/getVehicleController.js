@@ -6,7 +6,7 @@ const getVehicleDetails = async (req, res)=>{
     // Calling getVehicle service 
     const sid = req.query.sid;
     console.log('>>>>>>> ' + sid);
-    const vehicleData = JSON.parse(JSON.stringify(await getVehicleService.getVehicleServices()));
+    const vehicleData = JSON.parse(JSON.stringify(await getVehicleService.getVehicleServices(sid)));
     let vehicleDetails = [];
     vehicleData.forEach((element, index) => {
         const vehicleSensorData = element.d.sens;
