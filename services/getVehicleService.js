@@ -13,6 +13,7 @@ const getVehicleServices = async (sid) =>{
         });
 
         const token = res.data.eid;
+        console.log('login response ' + token);
 
         // Making vehicle detail call
         const vehicleDetails = await axios({
@@ -26,6 +27,7 @@ const getVehicleServices = async (sid) =>{
         });
 
         const vehicleData = vehicleDetails.data;
+        console.log('res from wialon ' + vehicleData);
         return vehicleData;
 
       } catch (error) {
