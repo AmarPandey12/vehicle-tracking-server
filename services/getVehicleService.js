@@ -13,6 +13,7 @@ const getVehicleServices = async (sidToken) =>{
         });
 
         const token = res.data.eid;
+        console.log('>>>>>>> ' + sidToken);
         // Making vehicle detail call
         const vehicleDetails = await axios({
             method: 'get',
