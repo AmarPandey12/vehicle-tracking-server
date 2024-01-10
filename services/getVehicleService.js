@@ -1,14 +1,15 @@
 console.log(`welcome to get vehicle service`);
 const axios = require('axios');
 
-const getVehicleServices = async (sid) =>{
+const getVehicleServices = async (sidToken) =>{
     try {
+        console.log('service in sid ' + sidToken);
         const res = await axios({
             method: 'get',
             url:'https://hst-api.wialon.com/wialon/ajax.html',
             params:{
                 svc: 'token/login',
-                params: `{"token": ${sid}}`
+                params: `{"token": ${sidToken}}`
             }
         });
 
