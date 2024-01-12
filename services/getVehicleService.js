@@ -22,7 +22,7 @@ const getVehicleServices = async (sidToken) =>{
             headers: { }
         };
         
-        axios.request(config)
+        await axios.request(config)
             .then((response) => {
             const vehicleData = response.data;
             console.log(JSON.stringify(response.data));
