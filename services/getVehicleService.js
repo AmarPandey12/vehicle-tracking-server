@@ -25,11 +25,12 @@ const getVehicleServices = async (sidToken) =>{
         axios.request(config)
             .then((response) => {
             const vehicleData = response.data;
-            // console.log(JSON.stringify(response.data));
+            console.log(JSON.stringify(response.data));
             console.log('????????? ' + vehicleData);
             return vehicleData;
         })
         .catch((error) => {
+            console.log('fuck off');
             console.log(error);
         });
 
