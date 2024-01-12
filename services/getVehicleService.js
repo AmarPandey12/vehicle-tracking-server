@@ -11,8 +11,8 @@ const getVehicleServices = async (sidToken) =>{
                 params: '{"token": "'+sidToken+'"}'
             }
         });
-
-        const token = res.data.eid;
+        console.log('checkpoint 1');
+        let token = res.data.eid;
         console.log('>>>>>>> ' + token);
         return token;
 
@@ -49,6 +49,7 @@ const getVehicleServices = async (sidToken) =>{
        
 
       } catch (error) {
+        console.log('checkpoint 2');
         console.error(error); // `error` will be whatever you passed to `reject()` at the top
       }
 }
