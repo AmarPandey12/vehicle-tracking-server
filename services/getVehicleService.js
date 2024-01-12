@@ -16,19 +16,21 @@ const getVehicleServices = async (sidToken) =>{
         console.log('>>>>>>> ' + token);
 
         let config = {
-        method: 'get',
-        maxBodyLength: Infinity,
-        url: 'https://hst-api.wialon.com/wialon/ajax.html?svc=core/update_data_flags&params={"spec":[{"type":"type","data":"avl_unit","flags":1025,"mode":0}]}&sid='+token+'"',
-        headers: { }
+            method: 'get',
+            maxBodyLength: Infinity,
+            url: 'https://hst-api.wialon.com/wialon/ajax.html?svc=core/update_data_flags&params={"spec":[{"type":"type","data":"avl_unit","flags":1025,"mode":0}]}&sid='+token+'"',
+            headers: { }
         };
         
         axios.request(config)
-        .then((response) => {
-        const vehicleData = response.data;
-        console.log(JSON.stringify(response.data));
+            .then((response) => {
+            const vehicleData = response.data;
+            // console.log(JSON.stringify(response.data));
+            console.log('????????? ' + vehicleData);
+            return vehicleData;
         })
         .catch((error) => {
-        console.log(error);
+            console.log(error);
         });
 
         // Making vehicle detail call
@@ -42,8 +44,7 @@ const getVehicleServices = async (sidToken) =>{
         //     }
         // });
         // const vehicleData = vehicleDetails.data;
-        console.log('????????? ' + vehicleData);
-        return token;
+       
 
       } catch (error) {
         console.error(error); // `error` will be whatever you passed to `reject()` at the top
