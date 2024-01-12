@@ -18,7 +18,7 @@ const getVehicleServices = async (sidToken) =>{
         let config = {
             method: 'get',
             maxBodyLength: Infinity,
-            url: 'https://hst-api.wialon.com/wialon/ajax.html?svc=core/update_data_flags&params={"spec":[{"type":"type","data":"avl_unit","flags":1025,"mode":0}]}&sid='+token+'"',
+            url: 'https://hst-api.wialon.com/wialon/ajax.html?svc=core/update_data_flags&params={"spec":[{"type":"type","data":"avl_unit","flags":1025,"mode":0}]}&sid=045dd623459d2cef7495fc3d7000aab4',
             headers: { }
         };
         
