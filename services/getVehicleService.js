@@ -14,39 +14,19 @@ const getVehicleServices = async (sidToken) =>{
         console.log('checkpoint 1');
         let token = res.data.eid;
         console.log('>>>>>>> ' + token);
-        return token;
-
-        // let config = {
-        //     method: 'get',
-        //     maxBodyLength: Infinity,
-        //     url: 'https://hst-api.wialon.com/wialon/ajax.html?svc=core/update_data_flags&params={"spec":[{"type":"type","data":"avl_unit","flags":1025,"mode":0}]}&sid=04334f1e417d0b5e21637061e8f9fb05',
-        //     headers: { }
-        // };
-        
-        // await axios.request(config)
-        //     .then((response) => {
-        //     const vehicleData = response.data;
-        //     console.log(JSON.stringify(response.data));
-        //     console.log('????????? ' + vehicleData);
-        //     return vehicleData;
-        // })
-        // .catch((error) => {
-        //     console.log('fuck off');
-        //     console.log(error);
-        // });
 
         // Making vehicle detail call
-        // const vehicleDetails = await axios({
-        //     method: 'get',
-        //     url:'https://hst-api.wialon.com/wialon/ajax.html',
-        //     params:{
-        //         svc: 'core/update_data_flags',
-        //         params: '{"spec":[{"type":"type","data":"avl_unit","flags":5121,"mode":0}]}',
-        //         sid: token
-        //     }
-        // });
-        // const vehicleData = vehicleDetails.data;
-       
+        const vehicleDetails = await axios({
+            method: 'get',
+            url:'https://hst-api.wialon.com/wialon/ajax.html',
+            params:{
+                svc: 'core/update_data_flags',
+                params: '{"spec":[{"type":"type","data":"avl_unit","flags":5121,"mode":0}]}',
+                sid: token
+            }
+        });
+        const vehicleData = vehicleDetails.data;
+        return vehicleData;
 
       } catch (error) {
         console.log('checkpoint 2');
