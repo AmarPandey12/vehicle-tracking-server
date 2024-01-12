@@ -3,22 +3,22 @@ const axios = require('axios');
 
 const getVehicleServices = async (sidToken) =>{
     try {
-        const res = await axios({
-            method: 'get',
-            url:'https://hst-api.wialon.com/wialon/ajax.html',
-            params:{
-                svc: 'token/login',
-                params: '{"token": "'+sidToken+'"}'
-            }
-        });
+        // const res = await axios({
+        //     method: 'get',
+        //     url:'https://hst-api.wialon.com/wialon/ajax.html',
+        //     params:{
+        //         svc: 'token/login',
+        //         params: '{"token": "'+sidToken+'"}'
+        //     }
+        // });
 
-        const token = res.data.eid;
-        console.log('>>>>>>> ' + token);
+        // const token = res.data.eid;
+        // console.log('>>>>>>> ' + token);
 
         let config = {
             method: 'get',
             maxBodyLength: Infinity,
-            url: 'https://hst-api.wialon.com/wialon/ajax.html?svc=core/update_data_flags&params={"spec":[{"type":"type","data":"avl_unit","flags":1025,"mode":0}]}&sid=045dd623459d2cef7495fc3d7000aab4',
+            url: 'https://hst-api.wialon.com/wialon/ajax.html?svc=core/update_data_flags&params={"spec":[{"type":"type","data":"avl_unit","flags":1025,"mode":0}]}&sid=04334f1e417d0b5e21637061e8f9fb05',
             headers: { }
         };
         
