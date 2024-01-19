@@ -10,11 +10,11 @@ const getVehicleServices = async (sidToken) =>{
             params:{
                 svc: 'core/create_auth_hash',
                 params: '{}',
-                sid: sidToken
+                sid: "'"+sidToken+"'"
             }
         });
         console.log('checkpoint 1');
-        let token = res.data;
+        let token = res.data.authHash;
         console.log('>>>>>>> ' + token);
 
         // Making vehicle detail call
