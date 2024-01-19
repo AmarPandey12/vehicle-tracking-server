@@ -3,16 +3,18 @@ const axios = require('axios');
 
 const getVehicleServices = async (sidToken) =>{
     try {
+        // ?svc=core/create_auth_hash&params={}&sid=048a43f1e1984feb9534f6d0fb417e99
         const res = await axios({
             method: 'get',
             url:'https://hst-api.wialon.com/wialon/ajax.html',
             params:{
-                svc: 'token/login',
-                params: '{"token": "'+sidToken+'"}'
+                svc: 'core/create_auth_hash',
+                params: '{}',
+                sid: '048a43f1e1984feb9534f6d0fb417e99'
             }
         });
         console.log('checkpoint 1');
-        let token = res.data.eid;
+        let token = res.data.authHash;
         console.log('>>>>>>> ' + token);
 
         // Making vehicle detail call
