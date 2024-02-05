@@ -5,7 +5,7 @@ const router = express.Router();
 const getVehicleController = require('../controllers/getVehicleController');
 
 router.route("/").get((req, res)=>{
-    res.send('Welcome to Technoton IT Solution');
+    res.send('Welcome to Techno Capstone');
 });
 router.route("/getVehicles").get(getVehicleController)
 
