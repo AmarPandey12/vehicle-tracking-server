@@ -14,6 +14,14 @@ app.use((err, req, res, next) => {
 //     next()
 // })
 
+var corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200, // For legacy browser support
+    methods: "GET, PUT"
+}
+
+app.use(cors(corsOptions));
+
 app.set('json spaces', 2)
 app.use("/", vehicleRoutes);
 app.use("/getVehicles", vehicleRoutes);
