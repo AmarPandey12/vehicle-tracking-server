@@ -2,6 +2,7 @@ const express = require('express');
 // const router = require('express.Router');
 const app = express();
 const vehicleRoutes = require('./routes/getVehicleRoute')
+const cors = require('cors');
 
 const port = process.env.PORT || 5000;
 
