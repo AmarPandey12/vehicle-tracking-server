@@ -24,20 +24,20 @@ const getVehicleDetails = async (req, res)=>{
                  // Get engine hour or Ignition
                  if(sensorName == 'Engine Hour'){
                     console.log('SENSOR KEY 2' + sensorName);
-                    sensorData.push({'engine sensor': 'Engine' , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
+                    sensorData.push({'engine_sensor': 'Engine' , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
                 }else if(sensorName == 'Ignition'){
                     console.log('SENSOR KEY 3' + sensorName);
-                    sensorData.push({'engine sensor': 'Engine' , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
+                    sensorData.push({'engine_sensor': 'Engine' , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
                 }else{
-                    sensorData.push({'engine sensor': 'Engine' , 'key': 'N/A', 'value': 'N/A'});
+                    sensorData.push({'engine_sensor': 'Engine' , 'key': 'N/A', 'value': 'N/A'});
                 }
 
                 // Get fuel volume total sensor volume
                 if(sensorName == 'Fuel Volume Total'){
                     console.log('SENSOR KEY 1 ' + sensorName);                    
-                    sensorData.push({'fuel sensor': 'Fuel' , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
+                    sensorData.push({'fuel_sensor': 'Fuel' , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
                 }else{
-                    sensorData.push({'fuel sensor': 'Fuel' , 'key': 'N/A', 'value': 'N/A'});
+                    sensorData.push({'fuel_sensor': 'Fuel' , 'key': 'N/A', 'value': 'N/A'});
                 }
 
                 // Get power sully status
@@ -46,9 +46,9 @@ const getVehicleDetails = async (req, res)=>{
                     sensorData.push({'power sensor': 'Power' , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
                 }else if(sensorName == 'Supply Power'){
                     console.log('SENSOR KEY 3' + sensorName);
-                    sensorData.push({'power sensor': 'Power' , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
+                    sensorData.push({'power_sensor': 'Power' , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
                 }else{
-                    sensorData.push({'power sensor': 'Power' , 'key': 'N/A', 'value': 'N/A'});
+                    sensorData.push({'power_sensor': 'Power' , 'key': 'N/A', 'value': 'N/A'});
                 }
                 
                 
