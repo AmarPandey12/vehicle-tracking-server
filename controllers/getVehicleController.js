@@ -22,17 +22,26 @@ const getVehicleDetails = async (req, res)=>{
                 console.log('SENSOR KEY ' + sensorKey);
                 // Get fuel volume total sensor volume
                 if(sensorName == 'Fuel Volume Total'){
-                    console.log('SENSOR KEY 1 ' + sensorKey);                    
+                    console.log('SENSOR KEY 1 ' + sensorName);                    
                     sensorData.push({'sensor': 'Fuel' , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
                 }
 
                 // Get engine hour or Ignition
                 if(sensorName == 'Engine Hour'){
-                    console.log('SENSOR KEY 2' + sensorKey);
+                    console.log('SENSOR KEY 2' + sensorName);
                     sensorData.push({'sensor': 'Engine' , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
                 }else if(sensorName == 'Ignition'){
-                    console.log('SENSOR KEY 3' + sensorKey);
+                    console.log('SENSOR KEY 3' + sensorName);
                     sensorData.push({'sensor': 'Engine' , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
+                }
+
+                // Get power sully status
+                if(sensorName == 'Power Supply Status'){
+                    console.log('SENSOR KEY 2' + sensorName);
+                    sensorData.push({'sensor': 'Power' , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
+                }else if(sensorName == 'Supply Power'){
+                    console.log('SENSOR KEY 3' + sensorName);
+                    sensorData.push({'sensor': 'Power' , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
                 }
                 
                 
