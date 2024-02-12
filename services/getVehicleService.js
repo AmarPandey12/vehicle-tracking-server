@@ -25,11 +25,9 @@ const getVehicleServices = async (sidToken) =>{
             }
         });
         const vehicleData = vehicleDetails.data;
-        // console.log('$$$$$$$ ' + JSON.stringify(vehicleData));
         return vehicleData;
 
       } catch (error) {
-        console.log('checkpoint 2');
         console.error(error); // `error` will be whatever you passed to `reject()` at the top
       }
 }

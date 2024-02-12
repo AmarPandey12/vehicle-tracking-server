@@ -9,7 +9,7 @@ const getVehicleDetails = async (req, res)=>{
         console.log('>>>>>>> ' + sid);
         const vehicleData = JSON.parse(JSON.stringify(await getVehicleService.getVehicleServices(sid)));
         let vehicleDetails = [];
-        console.log(vehicleData);
+        // console.log(vehicleData);
     
         vehicleData.forEach((element, index) => {
             const vehicleSensorData = element.d.sens;
@@ -18,16 +18,19 @@ const getVehicleDetails = async (req, res)=>{
             for(const [i,val] of Object.entries(vehicleSensorData))
             {
                 sensorKey = val.p;
+                console.log('SENSOR KEY ' + sensorKey);
                 // Get fuel volume total sensor volume
                 if(sensorKey == 'Fuel Volume Total'){
-                    
+                    console.log('SENSOR KEY 1 ' + sensorKey);                    
                     sensorData.push({'sensor': 'Fuel' , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
                 }
 
                 // Get engine hour or Ignition
                 if(sensorKey == 'Engine Hour'){
+                    console.log('SENSOR KEY 2' + sensorKey);
                     sensorData.push({'sensor': 'Engine' , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
                 }else if(sensorKey == 'Ignition'){
+                    console.log('SENSOR KEY 3' + sensorKey);
                     sensorData.push({'sensor': 'Engine' , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
                 }
                 
