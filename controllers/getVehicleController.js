@@ -38,8 +38,8 @@ const getVehicleDetails = async (req, res)=>{
             vehicleDetails.push({
                 'vehicle': element.d.nm, 
                 'vehicle_id': element.d.id, 
-                // 'last_location_lat': element.d.lmsg.pos.x, 
-                // 'last_location_long': element.d.lmsg.pos.y
+                'last_location_lat': element.d.lmsg.pos.x, 
+                'last_location_long': element.d.lmsg.pos.y
                 // 'Time': new Date(element.d.pos.t * 1000), 
                 // 'org_timestamp': element.d.pos.t
             })
