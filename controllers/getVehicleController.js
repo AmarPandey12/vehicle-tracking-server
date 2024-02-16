@@ -44,8 +44,9 @@ const getVehicleDetails = async (req, res)=>{
                 // // 'sensor_data': sensorData, 
                 // 'Time': new Date(element.d.pos.t * 1000), 
                 // 'org_timestamp': element.d.pos.t})
+            });
+            res.send(vehicleDetails);
         });
-        res.send(vehicleDetails);
     }catch(err){
         return err;
     }
