@@ -9,7 +9,7 @@ const getVehicleDetails = async (req, res)=>{
         console.log('>>>>>>> ' + sid);
         const vehicleData = JSON.parse(JSON.stringify(await getVehicleService.getVehicleServices(sid)));
         let vehicleDetails = [];
-        console.log(vehicleData);
+        // console.log(vehicleData);
         // res.send(vehicleData);
     
         vehicleData.forEach((element, index) => {
@@ -36,17 +36,18 @@ const getVehicleDetails = async (req, res)=>{
             // }
             // vehicleDetails.push({'vehicle': element.d.nm, 'vehicle_id': element.d.id, 'last_location_lat': element.d.lmsg.pos.x, 'last_location_long': element.d.lmsg.pos.y , 'sensor_data': sensorData, 'Time': new Date(element.d.pos.t * 1000), 'org_timestamp': element.d.pos.t})
             vehicleDetails.push({
-                'name': 'Amar',
                 'vehicle': element.d.nm, 
                 'vehicle_id': element.d.id, 
                 'last_location_lat': element.d.lmsg.pos.x, 
                 'last_location_long': element.d.lmsg.pos.y,
-                // // 'sensor_data': sensorData, 
                 'Time': new Date(element.d.pos.t * 1000), 
                 'org_timestamp': element.d.pos.t
             })
+
+            console.log(vehicleDetails);
+            
         });
-        
+
         res.send(vehicleDetails);
     }catch(err){
         return err;
