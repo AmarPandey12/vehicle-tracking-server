@@ -21,6 +21,7 @@ const getVehicleDetails = async (req, res)=>{
             {
                 let sensorKey = val.p;
                 let sensorName = val.n;
+                console.log('Hi ', sensorName);
                 // sensorData.push({'sensor': element.d.sens[i].n , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
                 // Get engine hour or Ignition
 
