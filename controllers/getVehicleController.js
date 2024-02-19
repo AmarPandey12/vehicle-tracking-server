@@ -6,7 +6,7 @@ const getVehicleDetails = async (req, res)=>{
         console.log('inside getVehicleDetails controller:: ');
         // Calling getVehicle service 
         const sid = req.query.sid;
-        console.log('>>>>>>> ' + sid);
+        // console.log('>>>>>>> ' + sid);
         const vehicleData = JSON.parse(JSON.stringify(await getVehicleService.getVehicleServices(sid)));
         let vehicleDetails = [];
         // console.log(vehicleData);
@@ -25,7 +25,7 @@ const getVehicleDetails = async (req, res)=>{
                 // sensorData.push({'sensor': element.d.sens[i].n , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
                 // Get engine hour or Ignition
 
-                if(sensorName == 'Engine Hour' || sensorName == 'Ignition'){
+                if(sensorName == 'Engine Hour' || 'Ignition'){
                     console.log(sensorName);
                     sensorData.push({'sensor_name': sensorName , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
                 }else{
@@ -48,7 +48,7 @@ const getVehicleDetails = async (req, res)=>{
 
         });
 
-        console.log(vehicleDetails);
+        // console.log(vehicleDetails);
 
         res.send(vehicleDetails);
     }catch(err){
