@@ -13,7 +13,7 @@ const getVehicleDetails = async (req, res)=>{
         // res.send(vehicleData);
     
         vehicleData.forEach((element, index) => {
-            console.log('Check point 1');
+            // console.log('Check point 1');
             const vehicleSensorData = element.d.sens;
             let sensorData = [];
             // let sensorKey = ;
@@ -25,11 +25,9 @@ const getVehicleDetails = async (req, res)=>{
                 // sensorData.push({'sensor': element.d.sens[i].n , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
                 // Get engine hour or Ignition
 
-                if(sensorName == 'Engine Hour' || 'Ignition'){
+                if(sensorName == 'Power Supply Status'){
                     console.log('>>>>>>>>>>>>>>>>>>>>>>>> ' + sensorName);
                     sensorData.push({'sensor_name': sensorName , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
-                }else{
-
                 }
                 // }else if(sensorKey == 'Ignition'){
                 //     sensorData.push({'sensor': 'Engine' , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
