@@ -20,10 +20,12 @@ const getVehicleDetails = async (req, res)=>{
             for(const [i,val] of Object.entries(vehicleSensorData))
             {
                 let sensorKey = element.d.sens[i].p;
-                sensorData.push({'sensor': element.d.sens[i].n , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
+                // sensorData.push({'sensor': element.d.sens[i].n , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
                 // Get engine hour or Ignition
-                // if(sensorKey == 'Engine Hour'){
-                //     sensorData.push({'sensor': 'Engine' , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
+
+                if(sensorKey == 'Engine Hour' || 'Ignition'){
+                    sensorData.push({'sensor': 'Engine' , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
+                }
                 // }else if(sensorKey == 'Ignition'){
                 //     sensorData.push({'sensor': 'Engine' , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
                 // }
