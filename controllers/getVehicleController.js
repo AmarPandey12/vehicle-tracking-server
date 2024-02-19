@@ -10,22 +10,23 @@ const getVehicleDetails = async (req, res)=>{
         const vehicleData = JSON.parse(JSON.stringify(await getVehicleService.getVehicleServices(sid)));
         let vehicleDetails = [];
         // console.log(vehicleData);
-        res.send(vehicleData);
+        // res.send(vehicleData);
     
         vehicleData.forEach((element, index) => {
             console.log('Check point 1');
             const vehicleSensorData = element.d.sens;
             let sensorData = [];
-            let sensorKey;
-            // for(const [i,val] of Object.entries(vehicleSensorData))
-            // {
-            //     // Get engine hour or Ignition
-            //     if(sensorKey == 'Engine Hour'){
-            //         sensorData.push({'sensor': 'Engine' , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
-            //     }else if(sensorKey == 'Ignition'){
-            //         sensorData.push({'sensor': 'Engine' , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
-            //     }
-            // }
+            // let sensorKey = ;
+            for(const [i,val] of Object.entries(vehicleSensorData))
+            {
+                sensorData.push({'sensor': element.d.sens[i].n , 'key': element.d.sens[i].p, 'value': element.d.lmsg.p});
+                // Get engine hour or Ignition
+                // if(sensorKey == 'Engine Hour'){
+                //     sensorData.push({'sensor': 'Engine' , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
+                // }else if(sensorKey == 'Ignition'){
+                //     sensorData.push({'sensor': 'Engine' , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
+                // }
+            }
             
             vehicleDetails.push({
                 'vehicle': element.d.nm, 
