@@ -21,13 +21,33 @@ const getVehicleDetails = async (req, res)=>{
             {
                 let sensorKey = val.p;
                 let sensorName = val.n;
+                let sensorMapping = val.tbl
                 console.log('Hi ', sensorName);
                 // sensorData.push({'sensor': element.d.sens[i].n , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
                 // Get engine hour or Ignition
 
                 if(sensorName == 'Power Supply Status'){
                     console.log('>>>>>>>>>>>>>>>>>>>>>>>> ' + sensorName);
-                    sensorData.push({'sensor_name': sensorName , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
+                    const sensor_value_received = element.d.lmsg.p[sensorKey];
+                    // Check if map table is available
+                    if(sensorMapping){
+                        console.log('Sensor mapping is available');
+                        
+                        let sortedData = sortData(sensorMapping);
+                        sortedData.forEach((element, index, array) => {
+                            if(index < array.length - 1) { 
+                                let RANGE_FOUND = inRange(sensor_value_received, array[index].x, array[index + 1].x);
+                                let FINAL_SENSOR_STATUS = (RANGE_FOUND) ? (array[i].b) ? 1 : 0 : 0
+                                console.log(FINAL_SENSOR_STATUS);
+
+                                sensorData.push({'sensor_name': sensorName , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
+                            }
+                        });
+                        
+                    }else{
+                        sensorData.push({'sensor_name': sensorName , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
+                    }
+                    
                 }
                 // }else if(sensorKey == 'Ignition'){
                 //     sensorData.push({'sensor': 'Engine' , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
@@ -54,6 +74,22 @@ const getVehicleDetails = async (req, res)=>{
     }
     
 }
+
+function sortData (data){
+    let sortedData;
+    {
+        sortedData = data.sort(function(a,b){
+        return a.x - b.x;
+        })
+    }
+    return sortedData;
+}
+
+function inRange(x, min, max) {
+    return ((x-min)*(x-max) <= 0);
+}
+
+
 module.exports = getVehicleDetails;
 
 
