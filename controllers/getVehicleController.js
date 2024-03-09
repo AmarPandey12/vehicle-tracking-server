@@ -35,7 +35,9 @@ const getVehicleDetails = async (req, res)=>{
                         
                         let sortedData = sortData(sensorMapping);
                         sortedData.forEach((element, index, array) => {
+                            console.log('checkpoint 1');
                             if(index < array.length - 1) { 
+                                console.log('checkpoint 2');
                                 let RANGE_FOUND = inRange(sensor_value_received, array[index].x, array[index + 1].x);
                                 let FINAL_SENSOR_STATUS = (RANGE_FOUND) ? (array[i].b) ? 1 : 0 : 0
                                 console.log(FINAL_SENSOR_STATUS);
