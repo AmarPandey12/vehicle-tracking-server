@@ -44,7 +44,7 @@ const getVehicleDetails = async (req, res)=>{
                                     let FINAL_SENSOR_STATUS = (RANGE_FOUND) ? (array[i]?.b) ? 1 : 0 : 0
                                     console.log(FINAL_SENSOR_STATUS);
 
-                                    sensorData.push({'sensor_name': sensorName , 'key': sensorKey, 'value': sensor_value_received});
+                                    sensorData.push({'sensor_name': sensorName , 'key': sensorKey, 'value': FINAL_SENSOR_STATUS});
                                 }
                             });
                         }catch(err){
