@@ -32,19 +32,25 @@ const getVehicleDetails = async (req, res)=>{
                     // Check if map table is available
                     if(sensorMapping){
                         console.log('Sensor mapping is available');
-                        
-                        let sortedData = sortData(sensorMapping);
-                        sortedData.forEach((element, index, array) => {
-                            console.log('checkpoint 1');
-                            if(index < array.length - 1) { 
-                                console.log('checkpoint 2');
-                                let RANGE_FOUND = inRange(sensor_value_received, array[index].x, array[index + 1].x);
-                                let FINAL_SENSOR_STATUS = (RANGE_FOUND) ? (array[i].b) ? 1 : 0 : 0
-                                console.log(FINAL_SENSOR_STATUS);
+                        try{
+                            let sortedData = sortData(sensorMapping);
+                            sortedData.forEach((element, index, array) => {
+                                console.log('checkpoint 1');
+                                if(index < array.length - 1) { 
+                                    console.log('checkpoint 2');
+                                    let RANGE_FOUND = inRange(sensor_value_received, array[index].x, array[index + 1].x);
+                                    let FINAL_SENSOR_STATUS = (RANGE_FOUND) ? (array[i].b) ? 1 : 0 : 0
+                                    console.log(FINAL_SENSOR_STATUS);
 
-                                sensorData.push({'sensor_name': sensorName , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
-                            }
-                        });
+                                    sensorData.push({'sensor_name': sensorName , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
+                                }
+                            });
+                        }catch(err){
+                            console.log('here is the error', err);
+                            return err;
+                        }
+                        
+                        
                         
                     }else{
                         sensorData.push({'sensor_name': sensorName , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
