@@ -33,6 +33,7 @@ const getVehicleDetails = async (req, res)=>{
                         try{
                             let sortedData = sortData(sensorMapping);
                             sortedData.forEach((element, index, array) => {
+                                console.log(array);
                                 console.log('checkpoint 1');
                                 if(index < array.length - 1) { 
                                     console.log('checkpoint 2');
