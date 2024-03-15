@@ -29,7 +29,7 @@ const getVehicleDetails = async (req, res)=>{
                     // Check if map table is available
                     if(sensorMapping){
                         console.log('Sensor mapping is available');
-                        console.log('mapping data ', );
+                        console.log('mapping data ', sensorMapping );
                         try{
                             let sortedData = sortData(sensorMapping);
                             sortedData.forEach((element, index, array) => {
