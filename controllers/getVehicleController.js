@@ -8,7 +8,7 @@ const getVehicleDetails = async (req, res)=>{
         const sid = req.query.sid;
         const vehicleData = JSON.parse(JSON.stringify(await getVehicleService.getVehicleServices(sid)));
         let vehicleDetails = [];
-        // res.send(vehicleData);
+        res.send(vehicleData);
     
         vehicleData.forEach((element, index) => {
             const vehicleSensorData = element.d.sens;
@@ -35,7 +35,7 @@ const getVehicleDetails = async (req, res)=>{
                             sortedData.forEach((element, index, array) => {
                                 console.log(array);
                                 console.log('checkpoint 1');
-                                if(index <= array.length - 1) { 
+                                if(index < array.length - 1) { 
                                     console.log('checkpoint 2');
                                     console.log(sensor_value_received, array[index].x, array[index + 1].x);
                                     let RANGE_FOUND = inRange(sensor_value_received, array[index].x, array[index + 1].x);
