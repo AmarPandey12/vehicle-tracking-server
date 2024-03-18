@@ -45,18 +45,17 @@ const getVehicleDetails = async (req, res)=>{
                                     console.log('checkpoint 2', sensor_value_received, array[index].x, array[index + 1].x);
                                     RANGE_FOUND = inRange(sensor_value_received, array[index].x, array[index + 1].x);
                                     console.log('Range ', RANGE_FOUND);
-                                    // FINAL_SENSOR_STATUS = (RANGE_FOUND) ? (array[i]?.b) ? 1 : 0 : 0
                                     FINAL_SENSOR_STATUS = (RANGE_FOUND) ? 1 : 0;
-                                    console.log(FINAL_SENSOR_STATUS);
+                                    // console.log(FINAL_SENSOR_STATUS);
 
                                     
                                 }
                             });
-                            if(!RANGE_FOUND){
+                            // if(RANGE_FOUND){
                                 console.log('ccccc ', sortedData);
                                 console.log(sensorMappingLength);
                                 // (array[sensorMappingLength].b < sensor_value_received) ? 1 : 0;
-                            }
+                            // }
                             sensorData.push({'sensor_name': sensorName , 'key': sensorKey, 'value': FINAL_SENSOR_STATUS});
                         }
                         
