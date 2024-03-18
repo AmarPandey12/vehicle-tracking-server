@@ -20,24 +20,27 @@ const getVehicleDetails = async (req, res)=>{
                 let sensorName = val.n;
                 let sensorMapping = val.tbl
                 
-                if(sensorMapping.length > 1){
+                if(sensorMapping.length){
                     console.log('Sensor mapping is available', element.d.nm, sensorName );
                     console.log('mapping data ', sensorMapping );
                     try{
-                        let sortedData = sortData(sensorMapping);
-                        sortedData.forEach((element, index, array) => {
-                            console.log(array);
-                            console.log('checkpoint 1');
-                            if(index < array.length - 1) { 
-                                console.log('checkpoint 2');
-                                console.log(sensor_value_received, array[index].x, array[index + 1].x);
-                                let RANGE_FOUND = inRange(sensor_value_received, array[index].x, array[index + 1].x);
-                                let FINAL_SENSOR_STATUS = (RANGE_FOUND) ? (array[i]?.b) ? 1 : 0 : 0
-                                console.log(FINAL_SENSOR_STATUS);
+                        if(sensorName == 'Fuel Volume Total'){
+                            console.log('Hi FVT');
+                        }
+                        // let sortedData = sortData(sensorMapping);
+                        // sortedData.forEach((element, index, array) => {
+                        //     console.log(array);
+                        //     console.log('checkpoint 1');
+                        //     if(index < array.length - 1) { 
+                        //         console.log('checkpoint 2');
+                        //         console.log(sensor_value_received, array[index].x, array[index + 1].x);
+                        //         let RANGE_FOUND = inRange(sensor_value_received, array[index].x, array[index + 1].x);
+                        //         let FINAL_SENSOR_STATUS = (RANGE_FOUND) ? (array[i]?.b) ? 1 : 0 : 0
+                        //         console.log(FINAL_SENSOR_STATUS);
 
-                                sensorData.push({'sensor_name': sensorName , 'key': sensorKey, 'value': FINAL_SENSOR_STATUS});
-                            }
-                        });
+                        //         sensorData.push({'sensor_name': sensorName , 'key': sensorKey, 'value': FINAL_SENSOR_STATUS});
+                        //     }
+                        // });
                     }catch(err){
                         console.log('here is the error', err);
                         return err;
