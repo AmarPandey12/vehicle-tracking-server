@@ -25,7 +25,7 @@ const getVehicleDetails = async (req, res)=>{
                     console.log('mapping data ', sensorMapping );
                     try{
                         if(sensorName == 'Fuel Volume Total'){
-                            console.log('Hi FVT');
+                            console.log('FVT Sensor');
                             if(sensorKey == 'io_201' || 'F'){
                                 sensorData.push({'sensor_name': sensorName , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]/10});
                             }else{
@@ -33,7 +33,7 @@ const getVehicleDetails = async (req, res)=>{
                             }
                         }
                         if(sensorName == 'Power Supply Status'){
-
+                            console.log('PSS Sensor');
                             let sortedData = sortData(sensorMapping);
                             sortedData.forEach((element, index, array) => {
                                 console.log(array);
