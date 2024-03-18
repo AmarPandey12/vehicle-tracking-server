@@ -21,7 +21,7 @@ const getVehicleDetails = async (req, res)=>{
                 let sensorMapping = val.tbl
                 
                 if(sensorMapping){
-                    console.log('Sensor mapping is available', element.d.nm );
+                    console.log('Sensor mapping is available', element.d.nm, sensorName );
                     console.log('mapping data ', sensorMapping );
                     try{
                         let sortedData = sortData(sensorMapping);
