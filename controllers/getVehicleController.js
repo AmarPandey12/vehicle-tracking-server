@@ -36,18 +36,20 @@ const getVehicleDetails = async (req, res)=>{
                             console.log('PSS Sensor');
                             const sensor_value_received = element.d.lmsg.p[sensorKey];
                             let sortedData = sortData(sensorMapping);
+                            let FINAL_SENSOR_STATUS;
                             sortedData.forEach((element, index, array) => {
                                 console.log(array);
                                 if(index < array.length - 1) { 
                                     console.log('checkpoint 2', sensor_value_received, array[index].x, array[index + 1].x);
-                                    let RANGE_FOUND = inRange(sensor_value_received, array[index].x, array[index + 1].x);
-                                    console.log('Range ', RANGE_FOUND);
-                                    let FINAL_SENSOR_STATUS = (!RANGE_FOUND) ? (array[i]?.b) ? 1 : 0 : 0
+                                    let RANGE_VALUE = inRange(sensor_value_received, array[index].x, array[index + 1].x);
+                                    console.log('Range ', RANGE_VALUE);
+                                    FINAL_SENSOR_STATUS = (RANGE_FOUND) ? (array[i]?.b) ? 1 : 0 : 0
                                     console.log(FINAL_SENSOR_STATUS);
 
-                                    sensorData.push({'sensor_name': sensorName , 'key': sensorKey, 'value': FINAL_SENSOR_STATUS});
+                                    
                                 }
                             });
+                            sensorData.push({'sensor_name': sensorName , 'key': sensorKey, 'value': FINAL_SENSOR_STATUS});
                         }
                         
                     }catch(err){
