@@ -19,8 +19,9 @@ const getVehicleDetails = async (req, res)=>{
                 let sensorKey = val.p;
                 let sensorName = val.n;
                 let sensorMapping = val.tbl
+                let sensorMappingLength = sensorMapping.length;
                 
-                if(sensorMapping.length){
+                if(sensorMappingLength){
                     console.log('Sensor mapping is available', element.d.nm, sensorName );
                     console.log('mapping data ', sensorMapping );
                     try{
@@ -51,6 +52,10 @@ const getVehicleDetails = async (req, res)=>{
                                     
                                 }
                             });
+                            if(!RANGE_FOUND){
+                                console.log(array[sensorMappingLength]);
+                                // (array[sensorMappingLength].b < sensor_value_received) ? 1 : 0;
+                            }
                             sensorData.push({'sensor_name': sensorName , 'key': sensorKey, 'value': FINAL_SENSOR_STATUS});
                         }
                         
