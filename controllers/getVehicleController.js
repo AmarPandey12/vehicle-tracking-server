@@ -20,7 +20,7 @@ const getVehicleDetails = async (req, res)=>{
                 let sensorName = val.n;
                 let sensorMapping = val.tbl
                 
-                if(sensorMapping){
+                if(sensorMapping.length){
                     console.log('Sensor mapping is available', element.d.nm, sensorName );
                     console.log('mapping data ', sensorMapping );
                     try{
