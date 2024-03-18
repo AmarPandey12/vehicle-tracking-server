@@ -53,7 +53,8 @@ const getVehicleDetails = async (req, res)=>{
                                 }
                             });
                             if(!RANGE_FOUND){
-                                console.log(sortedData[sensorMappingLength]);
+                                console.log('ccccc ', sortedData);
+                                console.log(sensorMappingLength);
                                 // (array[sensorMappingLength].b < sensor_value_received) ? 1 : 0;
                             }
                             sensorData.push({'sensor_name': sensorName , 'key': sensorKey, 'value': FINAL_SENSOR_STATUS});
