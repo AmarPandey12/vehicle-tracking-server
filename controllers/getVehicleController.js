@@ -34,6 +34,7 @@ const getVehicleDetails = async (req, res)=>{
                         }
                         if(sensorName == 'Power Supply Status'){
                             console.log('PSS Sensor');
+                            const sensor_value_received = element.d.lmsg.p[sensorKey];
                             let sortedData = sortData(sensorMapping);
                             sortedData.forEach((element, index, array) => {
                                 console.log(array);
