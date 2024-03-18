@@ -26,7 +26,7 @@ const getVehicleDetails = async (req, res)=>{
                     try{
                         if(sensorName == 'Fuel Volume Total'){
                             console.log('Hi FVT');
-                            if(sensorKey == 'io_201'){
+                            if(sensorKey == 'io_201' || 'F'){
                                 sensorData.push({'sensor_name': sensorName , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]/10});
                             }else{
                                 sensorData.push({'sensor_name': sensorName , 'key': sensorKey, 'value': element.d.lmsg.p[sensorKey]});
